@@ -1,27 +1,387 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Komplek Perumahan - Home</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Komplek Perumahan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fadein {
+            animation: fadeIn 0.5s ease-in;
+        }
+        .active {
+            border-bottom: 3px solid #2563eb;
+            font-weight: 600;
+        }
+        .carousel-item {
+            transition: opacity 1s ease-in-out;
+        }
+        .hidden {
+            display: none;
+            opacity: 0;
+        }
+        .show {
+            display: block;
+            opacity: 1;
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="laporan-keuangan.html">Laporan Keuangan</a>
-      <a href="kegiatan-warga.html">Kegiatan Warga</a>
-    </nav>
-  </header>
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a61b5a83-1904-4089-a9a2-973a86e6e592.png" alt="Logo Komplek Perumahan - Rumah modern dengan latar belakang hijau" class="h-12">
+                    <h1 class="text-2xl font-bold text-blue-800">Komplek Permata</h1>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" id="home-link" class="text-blue-600 hover:text-blue-800 active">Beranda</a>
+                    <a href="#" id="finance-link" class="text-gray-600 hover:text-blue-800">Laporan Keuangan</a>
+                    <a href="#" id="activity-link" class="text-gray-600 hover:text-blue-800">Kegiatan Warga</a>
+                </div>
+                <button class="md:hidden focus:outline-none transition duration-200 transform hover:scale-110" id="mobile-menu-button">
+                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile menu -->
+            <div class="md:hidden hidden mt-4" id="mobile-menu">
+                <a href="#" id="mobile-home-link" class="block py-2 px-4 text-sm hover:bg-gray-100 text-blue-600">Beranda</a>
+                <a href="#" id="mobile-finance-link" class="block py-2 px-4 text-sm hover:bg-gray-100 text-gray-600">Laporan Keuangan</a>
+                <a href="#" id="mobile-activity-link" class="block py-2 px-4 text-sm hover:bg-gray-100 text-gray-600">Kegiatan Warga</a>
+            </div>
+        </nav>
+    </header>
 
-  <div class="container">
-    <h1>Selamat Datang di Komplek Perumahan</h1>
-    <p>Website ini dibuat untuk memudahkan warga melihat laporan keuangan, jadwal kegiatan, dan informasi terbaru.</p>
-  </div>
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <!-- Home Section (Default Visible) -->
+        <section id="home-section" class="section">
+            <div class="mb-8 relative overflow-hidden rounded-lg shadow-lg h-96 md:h-[500px]">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/dc9305da-eee6-463b-aac3-d2582d9ead6c.png" alt="Komplek perumahan mewah dengan jalan aspal yang rapi, perumahan yang terawat dan taman hijau" class="w-full h-full object-cover">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6 text-white">
+                    <h2 class="text-3xl font-bold mb-2">Selamat Datang di Komplek Permata</h2>
+                    <p class="text-lg">Perumahan yang nyaman dan asri untuk keluarga Anda</p>
+                </div>
+            </div>
 
-  <footer>
-    &copy; 2025 Komplek Perumahan. All rights reserved.
-  </footer>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b548d0ca-ad44-404d-9ca9-431c051a2255.png" alt="Papan pengumuman komplek dengan berbagai informasi tertempel" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Pengumuman Terbaru</h3>
+                        <ul class="space-y-2">
+                            <li class="border-b pb-2">Rapat rutin warga hari Sabtu</li>
+                            <li class="border-b pb-2">Pembayaran iuran bulan ini</li>
+                            <li class="border-b pb-2">Acara senam bersama minggu depan</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5145bbd3-4c3d-4c0a-b906-e2a37195a21c.png" alt="Lingkungan komplek yang hijau dengan jalan bersih dan taman yang terawat" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Fasilitas Komplek</h3>
+                        <ul class="space-y-2">
+                            <li>24/7 Keamanan</li>
+                            <li>Taman Bermain Anak</li>
+                            <li>Lapangan Olahraga</li>
+                            <li>Area Parkir Luas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6f996984-cafa-4da8-b0b9-3534d61f30d0.png" alt="Ibu-ibu sedang berkumpul dan berdiskusi di taman komplek" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Kontak Penting</h3>
+                        <ul class="space-y-2">
+                            <li>Ketua RW: 0812-3456-789</li>
+                            <li>Keamanan: 0812-9876-543</li>
+                            <li>Bendahara: 0813-1234-567</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Finance Report Section (Hidden by default) -->
+        <section id="finance-section" class="section hidden">
+            <h2 class="text-2xl font-bold mb-6 text-blue-800 border-b pb-2">Laporan Keuangan Komplek</h2>
+            
+            <div class="bg-white shadow-md rounded-lg p-6 mb-8">
+                <h3 class="text-xl font-bold mb-4">Saldo Terkini</h3>
+                <div class="text-3xl font-bold text-green-600 mb-4">Rp 25.450.000,-</div>
+                <div class="flex space-x-4">
+                    <div class="bg-blue-50 p-4 rounded-lg flex-1">
+                        <div class="text-sm text-gray-600">Pemasukan Bulan Ini</div>
+                        <div class="text-lg font-semibold">Rp 12.500.000,-</div>
+                    </div>
+                    <div class="bg-red-50 p-4 rounded-lg flex-1">
+                        <div class="text-sm text-gray-600">Pengeluaran Bulan Ini</div>
+                        <div class="text-lg font-semibold">Rp 8.750.000,-</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-md rounded-lg overflow-hidden transition transform hover:-translate-y-1 hover:shadow-lg">
+                <h3 class="text-xl font-bold p-6 pb-2">Detail Transaksi 3 Bulan Terakhir</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/5">Tanggal</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Keterangan</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Debit</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kredit</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">15/06/2023</td>
+                                <td class="px-6 py-4">Pembayaran Iuran Bulanan</td>
+                                <td class="px-6 py-4 text-green-600 font-medium">4.250.000</td>
+                                <td class="px-6 py-4"></td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap">17/06/2023</td>
+                                <td class="px-6 py-4">Perbaikan Jalan</td>
+                                <td class="px-6 py-4"></td>
+                                <td class="px-6 py-4 text-red-600 font-medium">3.500.000</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">20/06/2023</td>
+                                <td class="px-6 py-4">Pembayaran Keamanan</td>
+                                <td class="px-6 py-4"></td>
+                                <td class="px-6 py-4 text-red-600 font-medium">2.000.000</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap">25/06/2023</td>
+                                <td class="px-6 py-4">Denda Pembayaran Iuran</td>
+                                <td class="px-6 py-4 text-green-600 font-medium">250.000</td>
+                                <td class="px-6 py-4"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resident Activity Section (Hidden by default) -->
+        <section id="activity-section" class="section hidden">
+            <h2 class="text-2xl font-bold mb-6 text-blue-800 border-b pb-2">Kegiatan Warga</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f282a2c1-5c2e-4e98-a27f-aa60366396b1.png" alt="Warga sedang berkumpul untuk rapat di aula komplek perumahan" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Rapat Rutin Warga</h3>
+                        <p class="text-gray-600 mb-4">Sabtu, 8 Juli 2023 - 19.00 WIB</p>
+                        <p>Rapat bulanan warga untuk membahas perkembangan komplek dan program-program yang akan datang.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/36750860-2b26-487e-98ef-1cba9bd45bfe.png" alt="Warga melakukan senam pagi bersama di area terbuka komplek" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Senam Pagi Bersama</h3>
+                        <p class="text-gray-600 mb-4">Setiap Minggu - 06.30 WIB</p>
+                        <p>Kegiatan senam pagi untuk menjaga kesehatan warga dengan instruktur profesional.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1f3cfefe-2310-4832-a5ca-aaff4f6d5ddb.png" alt="Anak-anak bermain dan melakukan berbagai aktivitas kreatif" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Lomba 17-an</h3>
+                        <p class="text-gray-600 mb-4">17 Agustus 2023 - 08.00 WIB</p>
+                        <p>Berbagai lomba menyambut HUT RI ke-78 untuk warga semua usia.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9c85fc45-820c-4613-a210-015852ebe40b.png" alt="Kegiatan kerja bakti bersama membersihkan lingkungan komplek" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Kerja Bakti Rutin</h3>
+                        <p class="text-gray-600 mb-4">Minggu ke-3 setiap bulan - 07.00 WIB</p>
+                        <p>Kegiatan bersih-bersih lingkungan komplek untuk menjaga keindahan dan kebersihan.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-md rounded-lg p-6 mt-8">
+                <h3 class="text-xl font-bold mb-4">Jadwal Kegiatan Bulan Ini</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tanggal</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kegiatan</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Waktu</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tempat</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">05/07/2023</td>
+                                <td class="px-6 py-4">Senam Pagi</td>
+                                <td class="px-6 py-4">06.30 - 08.00</td>
+                                <td class="px-6 py-4">Lapangan Utama</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap">08/07/2023</td>
+                                <td class="px-6 py-4">Rapat Warga</td>
+                                <td class="px-6 py-4">19.00 - 21.00</td>
+                                <td class="px-6 py-4">Aula Komplek</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">16/07/2023</td>
+                                <td class="px-6 py-4">Kerja Bakti</td>
+                                <td class="px-6 py-4">07.00 - 09.00</td>
+                                <td class="px-6 py-4">Area Komplek</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap">23/07/2023</td>
+                                <td class="px-6 py-4">Bazar Komplek</td>
+                                <td class="px-6 py-4">08.00 - 14.00</td>
+                                <td class="px-6 py-4">Area Parkir</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Komplek Permata</h3>
+                    <p>Perumahan yang nyaman untuk keluarga anda dengan fasilitas lengkap dan lingkungan yang asri.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Kontak</h3>
+                    <p>Jl. Permata Indah No. 123</p>
+                    <p>Kota Bandung, Jawa Barat</p>
+                    <p>Email: admin@permata.com</p>
+                    <p>Telp: (022) 1234567</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Jam Layanan</h3>
+                    <p>Senin - Jumat: 09.00 - 17.00</p>
+                    <p>Sabtu: 09.00 - 14.00</p>
+                    <p>Minggu & Hari Libur: Tutup</p>
+                </div>
+            </div>
+            <div class="border-t border-blue-700 mt-8 pt-6 text-center">
+                <p>© 2024 Komplek Permata. Semua Hak Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all navigation links
+            const homeLink = document.getElementById('home-link');
+            const financeLink = document.getElementById('finance-link');
+            const activityLink = document.getElementById('activity-link');
+            const mobileHomeLink = document.getElementById('mobile-home-link');
+            const mobileFinanceLink = document.getElementById('mobile-finance-link');
+            const mobileActivityLink = document.getElementById('mobile-activity-link');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            // Get all content sections
+            const homeSection = document.getElementById('home-section');
+            const financeSection = document.getElementById('finance-section');
+            const activitySection = document.getElementById('activity-section');
+            
+            // Mobile menu toggle
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Function to set active section
+            function setActiveSection(section) {
+                // Hide all sections
+                homeSection.classList.add('hidden');
+                financeSection.classList.add('hidden');
+                activitySection.classList.add('hidden');
+                
+                // Reset all links
+                homeLink.classList.remove('active');
+                financeLink.classList.remove('active');
+                activityLink.classList.remove('active');
+                mobileHomeLink.classList.remove('text-blue-600');
+                mobileFinanceLink.classList.remove('text-blue-600');
+                mobileActivityLink.classList.remove('text-blue-600');
+                
+                // Show selected section
+                section.classList.remove('hidden');
+                
+                // Highlight active link
+                if (section === homeSection) {
+                    homeLink.classList.add('active');
+                    mobileHomeLink.classList.add('text-blue-600');
+                } else if (section === financeSection) {
+                    financeLink.classList.add('active');
+                    mobileFinanceLink.classList.add('text-blue-600');
+                } else if (section === activitySection) {
+                    activityLink.classList.add('active');
+                    mobileActivityLink.classList.add('text-blue-600');
+                }
+            }
+            
+            // Desktop navigation events
+            homeLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                setActiveSection(homeSection);
+                mobileMenu.classList.add('hidden');
+            });
+            
+            financeLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                setActiveSection(financeSection);
+                mobileMenu.classList.add('hidden');
+            });
+            
+            activityLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                setActiveSection(activitySection);
+                mobileMenu.classList.add('hidden');
+            });
+            
+            // Mobile navigation events
+            mobileHomeLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                setActiveSection(homeSection);
+                mobileMenu.classList.add('hidden');
+            });
+            
+            mobileFinanceLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                setActiveSection(financeSection);
+                mobileMenu.classList.add('hidden');
+            });
+            
+            mobileActivityLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                setActiveSection(activitySection);
+                mobileMenu.classList.add('hidden');
+            });
+            
+            // Set home as default active
+            setActiveSection(homeSection);
+        });
+    </script>
 </body>
 </html>
